@@ -32,7 +32,7 @@ if [[ $UNAME == 'Darwin' ]]; then
     CURRENT_OS='OS X'
 
     # We also need xcode-select for this
-    xcode-select -p 1>/dev/null || ( xcode-select --install && printf "\n${GREEN}xcode command line tools installed" )
+    xcode-select -p 1>/dev/null || ( ./macos_bootstrap.sh && printf "\n${GREEN}xcode command line tools installed" )
 else
     # Must be Linux, determine distro
     if [[ -f /etc/redhat-release ]]; then
