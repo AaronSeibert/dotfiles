@@ -77,15 +77,15 @@ cd ~/.dotfiles
 ./install.sh
 
 # Attach install flags based on OS
-if [ $CURRENT_OS == 'OS X' ]; then
+if [[ $CURRENT_OS == 'OS X' ]]; then
     #MacOS Install Script
     printf "\n\n${RED}No MacOS Install Scripts yet\n"
-elif [ $CURRENT_OS == 'Linux' ]; then
+elif [[ $CURRENT_OS == 'Linux' ]]; then
     printf "\n\n${RED}No Linux Install Scripts yet\n"
-	if [ $CURRENT_OS == 'Debian' ]; then
+	if [[ $CURRENT_OS == 'Debian' ]]; then
 		# Debian/Ubuntu stuff
         printf "\n\n${RED}No Debian/Ubuntu Install Scripts yet\n"
-	elif [ $CURRENT_OS = 'Redhat' ]; then
+	elif [[ $CURRENT_OS = 'Redhat' ]]; then
 		# Redhat Stuff
         printf "\n\n${RED}No RedHat Install Scripts yet\n"
 	fi
