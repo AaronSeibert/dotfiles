@@ -1,7 +1,7 @@
 # OS Detection
 
 UNAME=`uname`
-REPO='git@github.com:AaronSeibert/dotfiles.git'
+REPO='https://github.com/AaronSeibert/dotfiles.git'
 
 # Fallback info
 CURRENT_OS='Linux'
@@ -22,7 +22,7 @@ else
 fi
 
 # Check if Git is installed
-bash -v git >/dev/null 2>&1 || { echo >&2 "Git not installed. Aborting"; exit 1; }
+command -v git >/dev/null 2>&1 || { echo >&2 "Git not installed. Aborting"; exit 1; }
 
 # Get the full repo
 git clone $REPO ~/.dotfiles
