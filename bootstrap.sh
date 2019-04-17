@@ -76,6 +76,9 @@ cd ~/.dotfiles
 # Execute install script
 ./dotfiles.sh
 
+# Install VIM plugins
+vim +PluginInstall +qall
+
 # Attach install flags based on OS
 if [ "$CURRENT_OS" == 'OS X' ]; then
     #MacOS Install Script
