@@ -74,7 +74,7 @@ fi
 cd ~/.dotfiles
 
 # Execute install script
-./install.sh
+./dotfiles.sh
 
 # Attach install flags based on OS
 if [ "$CURRENT_OS" == 'OS X' ]; then
