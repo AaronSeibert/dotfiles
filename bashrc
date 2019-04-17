@@ -33,9 +33,11 @@ else
 fi
 
 # GPG Agent for SSH keys
-eval `gpg-agent --daemon --no-grab`
-export GPG_TTY=`tty`
-export GPG_AGENT_INFO
+if ! [ "$GPG_AGENT_INFO" ]; then
+    eval `gpg-agent --daemon --no-grab`
+    export GPG_TTY=`tty`
+    export GPG_AGENT_INFO
+fi
 
 # User specific aliases and functions
 
