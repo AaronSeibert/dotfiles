@@ -15,23 +15,19 @@ files="zshrc aliases bashrc vimrc tmux.conf"    # list of files/folders to symli
 ##########
 
 # create dotfiles_old in homedir
-echo
-echo "Creating $olddir for backup of any existing dotfiles in ~"
+printf "\n${GREEN}Creating $olddir for backup of any existing dotfiles in ~\n"
 mkdir -p $olddir
-echo "...done"
+printf "${GREEN}...done\n"
 
 # change to the dotfiles directory
-echo
-echo "Changing to the $dir directory"
+printf "\n${GREEN}Changing to the $dir directory\n"
 cd $dir
-echo "...done"
+printf "${GREEN}...done\n"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    echo
-    echo "Moving ~/.$file to $olddir/.$file"
+    printf "\n${GREEN}Moving ~/.$file to $olddir/.$file\n"
     mv ~/.$file $olddir/
-    echo
-    echo "Creating symlink to $file in home directory."
+    printf "${GREEN}Creating symlink to $file in home directory.\n"
     ln -s $dir/$file ~/.$file
 done
