@@ -1,3 +1,11 @@
+#!/bin/bash
+
+# colors
+
+RED='\033[0;31m'
+GREEN='\033[0:32m'
+NC='\033[0m'
+
 # OS Detection
 
 UNAME=`uname`
@@ -21,18 +29,21 @@ else
     fi
 fi
 
+printf "\n${GREEN}Processiong bootstrap script for ${CURRENT_OS}..."
+
 # Check if Git is installed
-command -v git >/dev/null 2>&1 || { echo >&2 "Git not installed. Aborting"; exit 1; }
+printf "\n${GREEN}Checking for git..."
+command -v git >/dev/null 2>&1 || { echo >&2 "${RED}Git not installed. Aborting"; exit 1; }
 
 # Check if local repo already exists, if so, update. If not, clone
 
 if [ -d ~/.dotfiles ]; then
-    echo -e "Updating dotfiles repo\n"
+    printf "\N${GREEN}Updating dotfiles repo\n"
     cd ~/.dotfiles
     git pull
 else
     # Get the full repo
-    echo -e "Cloning dotfiles repo\n"
+    printf "\n${GREEN}Cloning dotfiles repo\n"
     git clone $REPO ~/.dotfiles
 fi
 
@@ -46,22 +57,17 @@ cd ~/.dotfiles
 # Attach install flags based on OS
 if [ $CURRENT_OS == 'OS X' ]; then
     #MacOS Install Script
-    echo
-    echo "No MacOS Install Scripts yet"
+    printf "\n${RED}No MacOS Install Scripts yet"
 elif [ $CURRENT_OS == 'Linux' ]; then
-    echo
-    echo "No Linux Install Scripts yet"
+    printf "\n${RED}No Linux Install Scripts yet"
 	if [ $CURRENT_OS == 'Debian' ]; then
 		# Debian/Ubuntu stuff
-        echo
-        echo "No Debian/Ubuntu Install Scripts yet"
+        printf "\n${RED}No Debian/Ubuntu Install Scripts yet"
 	elif [ $CURRENT_OS = 'Redhat' ]; then
 		# Redhat Stuff
-        echo
-        echo "No RedHat Install Scripts yet"
+        printf "\n${RED}No RedHat Install Scripts yet"
 	fi
 else
-    echo
-    echo "OS not supported by install scripts"
+    printf "\n${RED}OS not supported by install scripts"
     # No Match
 fi
