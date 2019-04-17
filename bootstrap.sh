@@ -31,19 +31,12 @@ DISTRO=''
 if [[ $UNAME == 'Darwin' ]]; then
     CURRENT_OS='OS X'
 
-    # We also need xcode-select for this
-	os=$(sw_vers -productVersion | awk -F. '{print $1 "." $2}')
-	if softwareupdate --history | grep --silent "Command Line Tools.*${os}"; then
-	    printf "\n${GREEN}Command-line tools already installed.\n${NORMAL}" 
-	else
-	    printf "\n${GREEN}Installing Command-line tools...\n${NORMAL}"
-	    in_progress=/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
-	    touch ${in_progress}
-	    product=$(softwareupdate --list | awk "/\* Command Line.*${os}/ { sub(/^   \* /, \"\"); print }")
-	    softwareupdate --verbose --install "${product}" || printf "\n${RED}Installation failed.\n\n${NORMAL}" 1>&2 && rm ${in_progress} && exit 1
-	    rm ${in_progress}
-	    printf "\n${GREEN}Installation succeeded.\n"
-	fi
+    # Install homebrew (we need xcode-select)
+    if ! [ -x "$(command -v brew)" ]; then
+        printf "\n${GREEN}Installing Homebrew...${NORMAL}\n\n"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || (printf "\n${RED}Homebrew install failed.${NORMAL}\n\n"; exit 1;)
+    fi
+
 else
     # Must be Linux, determine distro
     if [[ -f /etc/redhat-release ]]; then
