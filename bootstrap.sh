@@ -43,12 +43,12 @@ UNAME=`uname`
 CURRENT_OS='Linux'
 DISTRO=''
 
-if [[ $CURRENT_OS == 'OS X' ]]; then
+if [[ $CURRENT_OS == 'OS X' ]] then
     #MacOS Install Script
-elif [[ $CURRENT_OS == 'Linux' ]]; then
-	if [[ $CURRENT_OS == 'Debian' ]]; then
+elif [[ $CURRENT_OS == 'Linux' ]] then
+	if [[ $CURRENT_OS == 'Debian' ]] then
 		# Debian/Ubuntu stuff
-	elif [[ $CURRENT_OS = 'Redhat' ]]; then
+	elif [[ $CURRENT_OS = 'Redhat' ]] then
 		# Redhat Stuff
 	fi
 else
