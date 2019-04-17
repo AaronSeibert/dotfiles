@@ -26,7 +26,7 @@ command -v git >/dev/null 2>&1 || { echo >&2 "Git not installed. Aborting"; exit
 
 # Check if local repo already exists, if so, update. If not, clone
 
-if [ -d ~/.dotfiles ] then
+if [ -d ~/.dotfiles ]; then
     echo "Updating dotfiles repo\n"
     cd ~/.dotfiles
     git pull
@@ -52,12 +52,12 @@ UNAME=`uname`
 CURRENT_OS='Linux'
 DISTRO=''
 
-if [[ $CURRENT_OS == 'OS X' ]] then
+if [ $CURRENT_OS == 'OS X' ]; then
     #MacOS Install Script
-elif [[ $CURRENT_OS == 'Linux' ]] then
-	if [[ $CURRENT_OS == 'Debian' ]] then
+elif [ $CURRENT_OS == 'Linux' ]; then
+	if [ $CURRENT_OS == 'Debian' ]; then
 		# Debian/Ubuntu stuff
-	elif [[ $CURRENT_OS = 'Redhat' ]] then
+	elif [ $CURRENT_OS = 'Redhat' ]; then
 		# Redhat Stuff
 	fi
 else
