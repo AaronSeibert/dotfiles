@@ -1,5 +1,22 @@
 # .bashrc
 
+# COLORS
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+LIME_YELLOW=$(tput setaf 190)
+POWDER_BLUE=$(tput setaf 153)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+BRIGHT=$(tput bold)
+NORMAL=$(tput sgr0)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -11,9 +28,9 @@ fi
 
 # Prompt
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY"]; then
-    export PS1="\[\e[31m\](REMOTE) \[\e[m\]\[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \[\e[37m\]\w\[\e[m\] [\!] $ "
+    export PS1="${RED}(REMOTE) ${CYAN}\u ${WHITE}at ${yellow}\h ${BLUE}\w [\!] $ "
 else
-    export PS1="\[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \[\e[37m\]\w\[\e[m\] [\!] $ "
+    export PS1="${RED}(REMOTE) ${CYAN}\u ${WHITE}at ${yellow}\h ${BLUE}\w [\!] $ "
 fi
 
 if [ -f "${HOME}/.gpg-agent-info" ]; then
