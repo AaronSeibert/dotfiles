@@ -1,7 +1,7 @@
 # OS Detection
 
 UNAME=`uname`
-REPO=''
+REPO='git@github.com:AaronSeibert/dotfiles.git'
 
 # Fallback info
 CURRENT_OS='Linux'
