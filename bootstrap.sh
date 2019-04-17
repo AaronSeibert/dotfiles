@@ -22,7 +22,7 @@ else
 fi
 
 # Check if Git is installed
-command -v foo >/dev/null 2>&1 || { echo >&2 "Git not installed. Aborting"; exit 1; }
+command -v git >/dev/null 2>&1 || { echo >&2 "Git not installed. Aborting"; exit 1; }
 
 # Get the full repo
 git clone $REPO ~/.dotfiles
