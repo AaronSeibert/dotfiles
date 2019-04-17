@@ -3,7 +3,7 @@
 # colors
 
 RED='\033[0;31m'
-GREEN='\033[0:32m'
+GREEN='\033[0;32m'
 NC='\033[0m'
 
 # OS Detection
@@ -56,17 +56,17 @@ cd ~/.dotfiles
 # Attach install flags based on OS
 if [ $CURRENT_OS == 'OS X' ]; then
     #MacOS Install Script
-    printf "\n\n${RED}No MacOS Install Scripts yet"
+    printf "\n\n${RED}No MacOS Install Scripts yet\n"
 elif [ $CURRENT_OS == 'Linux' ]; then
-    printf "\n\n${RED}No Linux Install Scripts yet"
+    printf "\n\n${RED}No Linux Install Scripts yet\n"
 	if [ $CURRENT_OS == 'Debian' ]; then
 		# Debian/Ubuntu stuff
-        printf "\n\n${RED}No Debian/Ubuntu Install Scripts yet"
+        printf "\n\n${RED}No Debian/Ubuntu Install Scripts yet\n"
 	elif [ $CURRENT_OS = 'Redhat' ]; then
 		# Redhat Stuff
-        printf "\n\n${RED}No RedHat Install Scripts yet"
+        printf "\n\n${RED}No RedHat Install Scripts yet\n"
 	fi
 else
-    printf "\n\n${RED}OS not supported by install scripts"
+    printf "\n\n${RED}OS not supported by install scripts\n"
     # No Match
 fi
