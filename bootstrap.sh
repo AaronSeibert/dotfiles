@@ -2,9 +2,9 @@
 
 # colors
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m'
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+NC=$(tput sgr0)
 
 # OS Detection
 
