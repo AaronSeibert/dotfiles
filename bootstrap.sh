@@ -33,7 +33,7 @@ if [[ $UNAME == 'Darwin' ]]; then
 
     # Install homebrew (we need xcode-select)
     if ! [ -x "$(command -v brew)" ]; then
-        printf "\n${GREEN}Installing Homebrew...${NORMAL}\n\n"
+        printf "\n${GREEN}We need xcode-tools installed, and homebrew installs those so we're installing Homebrew...${NORMAL}\n\n"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || (printf "\n${RED}Homebrew install failed.${NORMAL}\n\n"; exit 1;)
     fi
 
@@ -58,13 +58,16 @@ command -v git >/dev/null 2>&1 || { echo >&2 "${RED}Git not installed. Aborting"
 # Check if local repo already exists, if so, update. If not, clone
 
 if [ -d ~/.dotfiles ]; then
-    printf "\n${GREEN}Updating dotfiles repo\n\n${BRIGHT}"
+    printf "\n${GREEN}Updating dotfiles repo and submodules\n\n${BRIGHT}"
     cd ~/.dotfiles
     git -c color.ui=auto pull
+    git submodule update --recursive --remote
 else
     # Get the full repo
-    printf "\n${GREEN}Cloning dotfiles repo\n\n${BRIGHT}"
+    printf "\n${GREEN}Cloning dotfiles repo and submodules ${NORMAL}\n\n"
     git -c color.ui=auto clone $REPO ~/.dotfiles
+    cd ~/.dotfiles
+    git submodule update --init --recursive
 fi
 
 # CD to ~/.dotfiles
