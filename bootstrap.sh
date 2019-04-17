@@ -4,6 +4,19 @@
 
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
+BLACK=$(tput setaf 0)
+YELLOW=$(tput setaf 3)
+LIME_YELLOW=$(tput setaf 190)
+POWDER_BLUE=$(tput setaf 153)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+BRIGHT=$(tput bold)
+NORMAL=$(tput sgr0)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
 NC=$(tput sgr0)
 
 # OS Detection
@@ -38,12 +51,12 @@ command -v git >/dev/null 2>&1 || { echo >&2 "${RED}Git not installed. Aborting"
 # Check if local repo already exists, if so, update. If not, clone
 
 if [ -d ~/.dotfiles ]; then
-    printf "\n\n${GREEN}Updating dotfiles repo\n"
+    printf "\n\n${GREEN}Updating dotfiles repo\n\n${BRIGHT}"
     cd ~/.dotfiles
     git pull
 else
     # Get the full repo
-    printf "\n\n${GREEN}Cloning dotfiles repo\n"
+    printf "\n\n${GREEN}Cloning dotfiles repo\n\n${BRIGHT}"
     git clone $REPO ~/.dotfiles
 fi
 
