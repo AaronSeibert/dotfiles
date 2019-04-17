@@ -34,9 +34,9 @@ if [[ $UNAME == 'Darwin' ]]; then
     # We also need xcode-select for this
 	os=$(sw_vers -productVersion | awk -F. '{print $1 "." $2}')
 	if softwareupdate --history | grep --silent "Command Line Tools.*${os}"; then
-	    printf "\n${GREEN}Command-line tools already installed.\n" 
+	    printf "\n${GREEN}Command-line tools already installed.\n${NORMAL}" 
 	else
-	    printf "\n${GREEN}Installing Command-line tools...\n"
+	    printf "\n${GREEN}Installing Command-line tools...\n${NORMAL}"
 	    in_progress=/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 	    touch ${in_progress}
 	    product=$(softwareupdate --list | awk "/\* Command Line.*${os}/ { sub(/^   \* /, \"\"); print }")
