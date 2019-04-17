@@ -33,7 +33,7 @@ else
 fi
 
 # GPG Agent for SSH keys
-if ! [ "$GPG_AGENT_INFO" ]; then
+if ! [ "$GPG_TTY" ]; then
     eval `gpg-agent --daemon --no-grab`
     export GPG_TTY=`tty`
     export GPG_AGENT_INFO
