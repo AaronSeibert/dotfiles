@@ -27,12 +27,12 @@ command -v git >/dev/null 2>&1 || { echo >&2 "Git not installed. Aborting"; exit
 # Check if local repo already exists, if so, update. If not, clone
 
 if [ -d ~/.dotfiles ]; then
-    echo "Updating dotfiles repo\n"
+    echo -e "Updating dotfiles repo\n"
     cd ~/.dotfiles
     git pull
 else
     # Get the full repo
-    echo "Cloning dotfiles repo\n"
+    echo -e "Cloning dotfiles repo\n"
     git clone $REPO ~/.dotfiles
 fi
 
