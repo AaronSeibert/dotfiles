@@ -51,4 +51,6 @@ elif [[ $CURRENT_OS == 'Linux' ]]; then
 	elif [[ $CURRENT_OS = 'Redhat' ]]; then
 		# Redhat Stuff
 	fi
+else
+    # No Match
 fi
