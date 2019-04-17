@@ -38,12 +38,12 @@ command -v git >/dev/null 2>&1 || { echo >&2 "${RED}Git not installed. Aborting"
 # Check if local repo already exists, if so, update. If not, clone
 
 if [ -d ~/.dotfiles ]; then
-    printf "\N${GREEN}Updating dotfiles repo\n"
+    printf "\n\n${GREEN}Updating dotfiles repo\n"
     cd ~/.dotfiles
     git pull
 else
     # Get the full repo
-    printf "\n${GREEN}Cloning dotfiles repo\n"
+    printf "\n\n${GREEN}Cloning dotfiles repo\n"
     git clone $REPO ~/.dotfiles
 fi
 
@@ -53,21 +53,20 @@ cd ~/.dotfiles
 # Execute install script
 ./install.sh
 
-
 # Attach install flags based on OS
 if [ $CURRENT_OS == 'OS X' ]; then
     #MacOS Install Script
-    printf "\n${RED}No MacOS Install Scripts yet"
+    printf "\n\n${RED}No MacOS Install Scripts yet"
 elif [ $CURRENT_OS == 'Linux' ]; then
-    printf "\n${RED}No Linux Install Scripts yet"
+    printf "\n\n${RED}No Linux Install Scripts yet"
 	if [ $CURRENT_OS == 'Debian' ]; then
 		# Debian/Ubuntu stuff
-        printf "\n${RED}No Debian/Ubuntu Install Scripts yet"
+        printf "\n\n${RED}No Debian/Ubuntu Install Scripts yet"
 	elif [ $CURRENT_OS = 'Redhat' ]; then
 		# Redhat Stuff
-        printf "\n${RED}No RedHat Install Scripts yet"
+        printf "\n\n${RED}No RedHat Install Scripts yet"
 	fi
 else
-    printf "\n${RED}OS not supported by install scripts"
+    printf "\n\n${RED}OS not supported by install scripts"
     # No Match
 fi
