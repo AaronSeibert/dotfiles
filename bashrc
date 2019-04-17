@@ -25,12 +25,11 @@ fi
 if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
-
 # Prompt
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY"]; then
-    export PS1="${RED}(REMOTE) ${CYAN}\u ${WHITE}at ${yellow}\h ${BLUE}\w [\!] $ "
+    export PS1="${RED}(REMOTE) ${CYAN}\u ${WHITE}on ${YELLOW}\h ${POWDER_BLUE}\w [\!] ${WHITE}$ "
 else
-    export PS1="${RED}(REMOTE) ${CYAN}\u ${WHITE}at ${yellow}\h ${BLUE}\w [\!] $ "
+    export PS1="${CYAN}\u ${WHITE}on ${YELLOW}\h ${POWDER_BLUE}\w [\!] ${NORMAL}$ "
 fi
 
 if [ -f "${HOME}/.gpg-agent-info" ]; then
