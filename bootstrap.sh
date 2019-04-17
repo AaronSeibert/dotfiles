@@ -32,7 +32,18 @@ if [[ $UNAME == 'Darwin' ]]; then
     CURRENT_OS='OS X'
 
     # We also need xcode-select for this
-    xcode-select -p 1>/dev/null || ( ./macos_bootstrap.sh && printf "\n${GREEN}xcode command line tools installed" )
+	os=$(sw_vers -productVersion | awk -F. '{print $1 "." $2}')
+	if softwareupdate --history | grep --silent "Command Line Tools.*${os}"; then
+	    printf "\n${GREEN}Command-line tools already installed.\n" 
+	else
+	    printf "\n${GREEN}Installing Command-line tools...\n"
+	    in_progress=/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+	    touch ${in_progress}
+	    product=$(softwareupdate --list | awk "/\* Command Line.*${os}/ { sub(/^   \* /, \"\"); print }")
+	    softwareupdate --verbose --install "${product}" || printf "\n${RED}Installation failed.\n\n${NORMAL}" 1>&2 && rm ${in_progress} && exit 1
+	    rm ${in_progress}
+	    printf "\n${GREEN}Installation succeeded.\n"
+	fi
 else
     # Must be Linux, determine distro
     if [[ -f /etc/redhat-release ]]; then
