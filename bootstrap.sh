@@ -51,13 +51,13 @@ command -v git >/dev/null 2>&1 || { echo >&2 "${RED}Git not installed. Aborting"
 # Check if local repo already exists, if so, update. If not, clone
 
 if [ -d ~/.dotfiles ]; then
-    printf "\n\n${GREEN}Updating dotfiles repo\n\n${BRIGHT}"
+    printf "\n${GREEN}Updating dotfiles repo\n\n${BRIGHT}"
     cd ~/.dotfiles
-    git pull
+    git -c color.ui=auto pull
 else
     # Get the full repo
-    printf "\n\n${GREEN}Cloning dotfiles repo\n\n${BRIGHT}"
-    git clone $REPO ~/.dotfiles
+    printf "\n${GREEN}Cloning dotfiles repo\n\n${BRIGHT}"
+    git -c color.ui=auto clone $REPO ~/.dotfiles
 fi
 
 # CD to ~/.dotfiles
