@@ -44,22 +44,24 @@ cd ~/.dotfiles
 
 
 # Attach install flags based on OS
-# OS Detection
-
-UNAME=`uname`
-
-# Fallback info
-CURRENT_OS='Linux'
-DISTRO=''
-
 if [ $CURRENT_OS == 'OS X' ]; then
     #MacOS Install Script
+    echo
+    echo "No MacOS Install Scripts yet"
 elif [ $CURRENT_OS == 'Linux' ]; then
+    echo
+    echo "No Linux Install Scripts yet"
 	if [ $CURRENT_OS == 'Debian' ]; then
 		# Debian/Ubuntu stuff
+        echo
+        echo "No Debian/Ubuntu Install Scripts yet"
 	elif [ $CURRENT_OS = 'Redhat' ]; then
 		# Redhat Stuff
+        echo
+        echo "No RedHat Install Scripts yet"
 	fi
 else
+    echo
+    echo "OS not supported by install scripts"
     # No Match
 fi
