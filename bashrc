@@ -32,6 +32,8 @@ else
     export PS1="${CYAN}\u ${WHITE}on ${YELLOW}\h ${POWDER_BLUE}\w [\!] ${NORMAL}$ "
 fi
 
+# TODO - check for gpg-agent binary before doing this 
+
 # GPG Agent for SSH keys
 if ! [ "$GPG_TTY" ]; then
     eval `gpg-agent --daemon --no-grab`
@@ -41,8 +43,10 @@ fi
 
 # User specific aliases and functions
 
-. ~/.exports
 . ~/.aliases
+. ~/.env_vars
+. ~/.functions
+. ~/.`hostname -f`.dotfiles
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

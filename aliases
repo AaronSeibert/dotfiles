@@ -1,1 +1,3 @@
 alias tf="terraform"
+alias dynupdate="curl https://dynamicdns.park-your-domain.com/update\?host\=home\&domain\=seibert.family\&password\=534384b3917e41b29216f44a1a1ff04f\&ip\=${$(curl https://ip.me)}"
+alias kc-remote-prod="kubectl config --kubeconfig do-nyc1-clients-rig-001-kubeconfig use-context do-nyc1-do-nyc1-clients-rig-001"

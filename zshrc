@@ -20,7 +20,8 @@ else
     fi
 fi
 
-source /usr/local/share/antigen/antigen.zsh
+source $(brew --prefix)/share/antigen/antigen.zsh
+# Not Darwin: source /usr/local/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -74,11 +75,21 @@ else
   export EDITOR='vim'
 fi
 
+# SSH Override
+#if [ -z "$SSH_AUTH_PID" ] ; then
+#    eval $(ssh-agent)
+#fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/id_ecdsa"
+# Shell Completion
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+source ~/.bin/tmuxinator.zsh
+# doctl completion
+# TODO: Add a check here
+#source <(doctl completion zsh)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -89,31 +100,7 @@ export SSH_KEY_PATH="~/.ssh/id_ecdsa"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# NVM 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-# kubeconfig
-export KUBECONFIG=/Users/aaron.seibert/.secrets/clusters/rig-001-prod/auth/kubeconfig
-
-# Environment Variables
-source ~/.env_vars
-
-# Aliases
+source ~/.exports
 source ~/.aliases
-
-# Custom Scripts
-export PATH="$PATH:$HOME/bin"
-
-# Tmux
-source ~/.bin/tmuxinator.zsh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-source ~/.kops_shell_integration.zsh
-
-
-# ssh add
-ssh-add ~/.ssh/provisioner_id_rsa
+source ~/.env_vars
+source ~/.functions

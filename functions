@@ -1,0 +1,4 @@
+# If SSH, launch tmux
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+  tmux -CC attach-session -t ssh_tmux || tmux -CC new-session -s ssh_tmux
+fi

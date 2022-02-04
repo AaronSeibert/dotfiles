@@ -11,7 +11,8 @@ olddir=~/.dotfiles_old                  # old dotfiles backup directory
 privateDir=~/.dotfilesPrivate           # private dotfiles
 oldPrivateDir=~/.dotfilesPrivate_old    # old private dotfiles
 #files="bashrc vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
-files="zshrc aliases bashrc bash_profile profile vim vimrc tmux.conf"    # list of files/folders to symlink in homedir
+hostname=`hostname -f`
+files="zshrc aliases bashrc bash_profile env_vars profile vim vimrc tmux.conf"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
@@ -31,3 +32,16 @@ for file in $files; do
     printf "${GREEN}Creating symlink to $file in home directory.\n"
     ln -s $dir/$file ~/.$file
 done
+
+# Copy any hostname-specific files
+if [[ -f "${dir}/host-specific/${hostname}" ]]; then
+    echo "$FILE exists."
+else
+    touch "./host-specific/${hostname}"
+fi
+
+printf "\n${GREEN}Moving ~/.${hostname}.dotfiles to ${olddir}/.${hostname}.dotfiles\n"
+mv ~/.${hostname}.dotfiles $olddir/.${hostname}.dotfiles
+printf "${GREEN}Creating symlink to $file in home directory.\n"
+ln -s ${dir}/host-specific/${hostname} ~/.${hostname}.dotfiles
+
