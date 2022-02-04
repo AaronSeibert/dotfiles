@@ -12,7 +12,7 @@ privateDir=~/.dotfilesPrivate           # private dotfiles
 oldPrivateDir=~/.dotfilesPrivate_old    # old private dotfiles
 #files="bashrc vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 hostname=`hostname -f`
-files="zshrc aliases bashrc bash_profile env_vars profile vim vimrc tmux.conf"    # list of files/folders to symlink in homedir
+files="zshrc aliases bashrc bash_profile env_vars functions profile vim vimrc tmux.conf"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
@@ -27,8 +27,10 @@ printf "${GREEN}...done\n"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    printf "\n${GREEN}Moving ~/.$file to $olddir/.$file\n"
-    mv ~/.$file $olddir/
+    if [[ -f $file ]]; then
+        printf "\n${GREEN}Moving ~/.$file to $olddir/.$file\n"
+        mv ~/.$file $olddir/
+    fi
     printf "${GREEN}Creating symlink to $file in home directory.\n"
     ln -s $dir/$file ~/.$file
 done
