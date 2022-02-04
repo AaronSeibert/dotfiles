@@ -105,6 +105,10 @@ source ~/.aliases
 source ~/.env_vars
 source ~/.functions
 
+# Copy any hostname-specific files
 if [[ -f "~/.`hostname -f`.dotfiles" ]]; then
-    source ~/.`hostname -f`.dotfiles
+    . ~/.`hostname -f`.dotfiles
+else
+    # Create local host overrides
+    touch ~/.`hostname -f`.dotfiles
 fi

@@ -51,6 +51,9 @@ fi
 # Copy any hostname-specific files
 if [[ -f "~/.`hostname -f`.dotfiles" ]]; then
     . ~/.`hostname -f`.dotfiles
+else
+    # Create local host overrides
+    touch ~/.`hostname -f`.dotfiles
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
