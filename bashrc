@@ -27,9 +27,9 @@ if [ -f /etc/bash_completion ]; then
 fi
 # Prompt
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY"]; then
-    export PS1="${RED}(REMOTE) ${CYAN}\u ${WHITE}on ${YELLOW}\h ${POWDER_BLUE}\w [\!] ${WHITE}$ "
+    export PS1="\[${RED}\](REMOTE) \[${CYAN}\]\u \[${WHITE}\]on \[${YELLOW}\]\h \[${POWDER_BLUE}\]\w [\!] \[${WHITE}\]$ "
 else
-    export PS1="${CYAN}\u ${WHITE}on ${YELLOW}\h ${POWDER_BLUE}\w [\!] ${NORMAL}$ "
+    export PS1="\[${CYAN}\]\u \[${WHITE}\]on \[${YELLOW}\]\h \[${POWDER_BLUE}\]\w [\!] \[${NORMAL}\]$ "
 fi
 
 # TODO - check for gpg-agent binary before doing this 
