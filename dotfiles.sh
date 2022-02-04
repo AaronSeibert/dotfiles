@@ -32,16 +32,3 @@ for file in $files; do
     printf "${GREEN}Creating symlink to $file in home directory.\n"
     ln -s $dir/$file ~/.$file
 done
-
-# Copy any hostname-specific files
-if [[ -f "${dir}/host-specific/${hostname}" ]]; then
-    echo "$FILE exists."
-else
-    touch "./host-specific/${hostname}"
-fi
-
-printf "\n${GREEN}Moving ~/.${hostname}.dotfiles to ${olddir}/.${hostname}.dotfiles\n"
-mv ~/.${hostname}.dotfiles $olddir/.${hostname}.dotfiles
-printf "${GREEN}Creating symlink to $file in home directory.\n"
-ln -s ${dir}/host-specific/${hostname} ~/.${hostname}.dotfiles
-

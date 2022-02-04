@@ -46,7 +46,12 @@ fi
 . ~/.aliases
 . ~/.env_vars
 . ~/.functions
-. ~/.`hostname -f`.dotfiles
+
+
+# Copy any hostname-specific files
+if [[ -f "~/.`hostname -f`.dotfiles" ]]; then
+    . ~/.`hostname -f`.dotfiles
+fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

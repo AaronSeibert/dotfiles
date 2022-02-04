@@ -104,3 +104,7 @@ source ~/.exports
 source ~/.aliases
 source ~/.env_vars
 source ~/.functions
+
+if [[ -f "~/.`hostname -f`.dotfiles" ]]; then
+    source ~/.`hostname -f`.dotfiles
+fi
