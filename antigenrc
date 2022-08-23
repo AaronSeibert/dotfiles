@@ -19,7 +19,7 @@ antigen bundle terraform
 antigen bundle flutter
 
 # kubectl
-if [ -x "$(kubectl)" ]
+if [ -x "$(kubectl)" ]; then
     antigen bundle kubectl
 fi
 
