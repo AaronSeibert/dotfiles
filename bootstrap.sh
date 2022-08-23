@@ -79,6 +79,9 @@ cd ~/.dotfiles
 # Install VIM plugins
 vim +PluginInstall +qall
 
+# Install TPM
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Attach install flags based on OS
 if [ "$CURRENT_OS" == 'OS X' ]; then
     #MacOS Install Script
