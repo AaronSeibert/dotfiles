@@ -107,7 +107,7 @@ elif [ "$CURRENT_OS" == 'Linux' ]; then
     # Linux wrap up
 
     printf "\n\n${RED}Changing shell to zsh for current user${NORMAL}\n"
-    sudo chsh $USER /bin/zsh
+    sudo chsh $USER -s /bin/zsh
 else
     printf "\n\n${RED}OS not supported by install scripts${NORMAL}\n"
     # No Match
