@@ -89,9 +89,10 @@ vim +PluginInstall +qall
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Attach install flags based on OS
-
-printf "\n\n${GREEN}Adding SSH identities from Github${NORMAL}\n"
-ssh-import-id gh:AaronSeibert
+if [ -x "$(which ssh-import-id)" ]; then
+    printf "\n\n${GREEN}Adding SSH identities from Github${NORMAL}\n"
+    ssh-import-id gh:AaronSeibert
+fi
 
 if [ "$CURRENT_OS" == 'OS X' ]; then
     #MacOS Install Script
