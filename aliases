@@ -1,2 +1,4 @@
 alias tf="terraform"
 alias kc-remote-prod="kubectl config --kubeconfig do-nyc1-clients-rig-001-kubeconfig use-context do-nyc1-do-nyc1-clients-rig-001"
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+# alias tmux='tmux new -CC -A'

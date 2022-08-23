@@ -1,3 +1,4 @@
 # Ignore Vundle plugins (they will need to be installed)
 vim/bundle/*
 !vim/bundle/Vundle.vim
+tmux/plugins/*

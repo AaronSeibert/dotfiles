@@ -1,3 +1,13 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Disable Title renaming
+DISABLE_AUTO_TITLE="true"
+
 # OS Detection
 
 UNAME=`uname`
@@ -20,48 +30,17 @@ else
     fi
 fi
 
-source $(brew --prefix)/share/antigen/antigen.zsh
-# Not Darwin: source /usr/local/share/antigen/antigen.zsh
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
-antigen bundle gpg-agent
-antigen bundle rails
-antigen bundle ruby
-antigen bundle node
-antigen bundle tmuxinator
-antigen theme mortalscumbag
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# OS specific plugins
-if [[ $CURRENT_OS == 'OS X' ]]; then
-    antigen bundle brew
-    antigen bundle brew-cask
-    antigen bundle gem
-    antigen bundle osx
-elif [[ $CURRENT_OS == 'Linux' ]]; then
-    # None so far...
-
-    if [[ $DISTRO == 'CentOS' ]]; then
-        antigen bundle centos
-    fi
-elif [[ $CURRENT_OS == 'Cygwin' ]]; then
-    antigen bundle cygwin
+  autoload -Uz compinit
+  compinit
 fi
 
-# Tell antigen that you're done.
-antigen apply
 
-# User configuration
+# Load antigen
+source ~/.antigenrc
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -84,21 +63,7 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 # Shell Completion
-if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-source ~/.bin/tmuxinator.zsh
-# doctl completion
-# TODO: Add a check here
-#source <(doctl completion zsh)
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.exports
 source ~/.aliases
@@ -112,3 +77,6 @@ else
     # Create local host overrides
     touch ~/.`hostname -f`.dotfiles
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
