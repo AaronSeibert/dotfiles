@@ -10,9 +10,8 @@ dir=~/.dotfiles                         # dotfiles directory
 olddir=~/.dotfiles_old                  # old dotfiles backup directory
 privateDir=~/.dotfilesPrivate           # private dotfiles
 oldPrivateDir=~/.dotfilesPrivate_old    # old private dotfiles
-#files="bashrc vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 hostname=`hostname -f`
-files="zshrc aliases bashrc bash_profile env_vars functions profile vim vimrc tmux.conf"    # list of files/folders to symlink in homedir
+files="zshrc aliases antigenrc bashrc bash_profile env_vars functions profile vim vimrc tmux.conf tmux"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
