@@ -95,6 +95,7 @@ if [ "$CURRENT_OS" == 'OS X' ]; then
 elif [ "$CURRENT_OS" == 'Linux' ]; then
     printf "\n\n${RED}Checking Linux Distro for Install Scripts${NORMAL}\n"
 	if [ "$DISTRO" == 'ubuntu' ]; then
+        printf "\n\n${RED}Running Ubuntu install scripts${NORMAL}\n"
 		# Debian/Ubuntu stuff
         sudo apt install -y zsh
         printf "\n\n${RED}Ubuntu Install Scripts completed${NORMAL}\n"
@@ -102,6 +103,11 @@ elif [ "$CURRENT_OS" == 'Linux' ]; then
 		# Redhat Stuff
         printf "\n\n${RED}No RedHat Install Scripts yet${NORMAL}\n"
 	fi
+
+    # Linux wrap up
+
+    printf "\n\n${RED}Changing shell to zsh for current user${NORMAL}\n"
+    sudo chsh $USER /bin/zsh
 else
     printf "\n\n${RED}OS not supported by install scripts${NORMAL}\n"
     # No Match
