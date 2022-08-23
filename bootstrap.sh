@@ -88,6 +88,9 @@ vim +PluginInstall +qall
 # Install TPM
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# Install libtmux
+python3 -m pip install libtmux --user
+
 # Attach install flags based on OS
 if [ -x "$(which ssh-import-id)" ]; then
     printf "\n\n${GREEN}Adding SSH identities from Github${NORMAL}\n"
