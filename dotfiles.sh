@@ -11,7 +11,7 @@ olddir=~/.dotfiles_old                  # old dotfiles backup directory
 privateDir=~/.dotfilesPrivate           # private dotfiles
 oldPrivateDir=~/.dotfilesPrivate_old    # old private dotfiles
 hostname=`hostname -f`
-files="zshrc aliases antigenrc bashrc bash_profile env_vars functions profile vim vimrc tmux.conf"    # list of files/folders to symlink in homedir
+files="zshrc aliases antigenrc bashrc bash_profile env_vars functions profile vim vimrc tmux.conf p10k.zsh"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
