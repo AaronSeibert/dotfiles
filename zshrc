@@ -30,7 +30,7 @@ else
     fi
 fi
 
-if [ -x "$(brew)"]; then
+if [ -x "$(which brew)"]; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
   autoload -Uz compinit
