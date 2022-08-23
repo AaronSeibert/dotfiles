@@ -57,7 +57,6 @@ fi
 # Shell Completion
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-source ~/.exports
 source ~/.aliases
 source ~/.env_vars
 source ~/.functions
