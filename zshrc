@@ -54,14 +54,6 @@ else
   export EDITOR='vim'
 fi
 
-# SSH Override
-#if [ -z "$SSH_AUTH_PID" ] ; then
-#    eval $(ssh-agent)
-#fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # Shell Completion
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
