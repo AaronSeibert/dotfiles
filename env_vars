@@ -29,6 +29,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # openssh
-if [ -x "$(brew --prefix)" ]
+if [ -x "$(brew --prefix)" ]; then
     export PATH=$(brew --prefix openssh)/bin:$PATH
 fi
