@@ -10,17 +10,37 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'slim-template/vim-slim'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'romkatv/powerlevel10k'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'qpkorr/vim-bufkill'
 
+" Must be last!
+Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
+
+" lightline theme
+let g:lightline = {
+    \ 'colorscheme': 'nord',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ },
+    \ }
+
+colorscheme nord
+
 filetype plugin indent on    " enable loading indent file for filetype
 
 syntax on                           " syntax highlighing
@@ -28,13 +48,15 @@ filetype on                          " try to detect filetypes
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set noshowmode
 
 nnoremap <leader>v <Plug>TaskList
+nnoremap <leader>q :bp<cr>:bd #<cr>
 
 let g:NERDTreeWinPos = "right"
-let g:NERDTreeDirArrows=1
-
+let g:NERDTreeStatusline = '%#NonText#'
 let g:xmledit_enable_html=1
+
 
 set foldmethod=indent
 set foldlevel=9
