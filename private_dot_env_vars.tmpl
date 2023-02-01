@@ -1,0 +1,23 @@
+# Ansible
+export ANSIBLE_HOST_KEY_CHECKING="False"
+
+## Imported from zshrc
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# kubeconfig
+export KUBECONFS=${HOME}/.kube/conf.d
+
+# Add all kubeconfigs
+for file in $KUBECONFS/**/*(.);
+    export KUBECONFIG=${KUBCONFIG}:$file
+
+# Custom Scripts
+export PATH="$PATH:$HOME/bin"
+
+export GITHUB_USERNAME="AaronSeibert"
+
+# openssh
+if [ -x "$(which brew)" ]; then
+    export PATH=$(brew --prefix openssh)/bin:$PATH
+fi

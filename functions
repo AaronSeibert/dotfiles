@@ -1,5 +1,0 @@
-# If SSH, launch tmux
-# On second thought, tmux -CC is very specific to iTerm2 and I'd rather do it as an iterm2 termius snippet
-#if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
-#  tmux -CC new-session -A -s ssh_tmux
-#fi

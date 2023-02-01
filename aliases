@@ -1,7 +1,0 @@
-alias tf="terraform"
-alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-alias kc-remote-prod="kubectl config --kubeconfig do-nyc1-clients-rig-001-kubeconfig use-context do-nyc1-do-nyc1-clients-rig-001"
-
-# tpm scripts
-alias tpmin='~/.tmux/plugins/tpm/bin/install_plugins'
-alias tpmup='~/.tmux/plugins/tpm/bin/update_plugins all'

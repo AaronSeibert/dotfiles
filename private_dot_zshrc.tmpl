@@ -32,19 +32,25 @@ fi
 
 if [ -x "$(which brew)" ]; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# init completions
+autoload -Uz compinit && compinit
 
-# Load antigen
-source ~/.antigenrc
+# source antidote
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# set omz variables
+ZSH=$(antidote path ohmyzsh/ohmyzsh)
+ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+[[ -d $ZSH_CACHE_DIR ]] || mkdir -p $ZSH_CACHE_DIR
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
+
+# autoload prompt
+autoload -Uz promptinit && promptinit && prompt powerlevel10k
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -60,12 +66,9 @@ source ~/.aliases
 source ~/.env_vars
 source ~/.functions
 
-# Copy any hostname-specific files
-if [[ -f "~/.`hostname -f`.dotfiles" ]]; then
-    . ~/.`hostname -f`.dotfiles
-else
-    # Create local host overrides
-    touch ~/.`hostname -f`.dotfiles
+# load private environment vars definitions if it iexists
+if [[ -f "~/.private_env" ]]; then
+    . ~/.private_env
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
