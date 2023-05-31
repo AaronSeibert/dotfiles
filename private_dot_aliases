@@ -5,3 +5,7 @@ alias kc-remote-prod="kubectl config --kubeconfig do-nyc1-clients-rig-001-kubeco
 # tpm scripts
 alias tpmin='~/.tmux/plugins/tpm/bin/install_plugins'
 alias tpmup='~/.tmux/plugins/tpm/bin/update_plugins all'
+
+# override vim/vi with nvim
+alias vim='nvim'
+alias vi='nvim'
