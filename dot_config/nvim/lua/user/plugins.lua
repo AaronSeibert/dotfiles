@@ -40,6 +40,7 @@ packer.init({
 
 --- Plugins via Packer
 return require('packer').startup(function(use)
+  use {'zsh-users/zsh-syntax-highlighting'}
   use {'wbthomason/packer.nvim'}
 	use {'ctrlpvim/ctrlp.vim'}
 	use {'kana/vim-textobj-user'}
