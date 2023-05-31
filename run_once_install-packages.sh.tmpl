@@ -3,7 +3,8 @@
 sudo apt install ripgrep
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
-brew install jq fzf neovim antidote
+brew tap homebrew/cask-fonts
+brew install jq fzf neovim antidote font-fira-code-nerd-font
 {{ end -}}
 mkdir -p ~/.kube/conf.d/
 
