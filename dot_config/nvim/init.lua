@@ -18,5 +18,6 @@ vim.cmd([[
 	set nu rnu
 	set inccommand=nosplit
 	colorscheme nord
+  autocmd BufNewFile,BufRead *zshrc* set filetype=zsh
 ]])
 
