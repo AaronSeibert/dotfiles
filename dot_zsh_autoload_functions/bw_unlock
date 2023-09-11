@@ -1,8 +1,0 @@
-bw_unlock() {
-  if [[ -z $BW_SESSION ]] ; then
-    >&2 echo 'bw locked - unlocking into a new session'
-    export BW_SESSION="$(bw unlock --raw)"
-  fi
-}
-
-bw_unlock "$@"
