@@ -84,6 +84,16 @@ _G.packer_plugins = {
     path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["minibufexpl.vim"] = {
     loaded = true,
     path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/minibufexpl.vim",
@@ -93,6 +103,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/nord-vim",
     url = "https://github.com/arcticicestudio/nord-vim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -124,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/vim-coffee-script",
     url = "https://github.com/kchmck/vim-coffee-script"
   },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
+  },
   ["vim-slim"] = {
     loaded = true,
     path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/vim-slim",
@@ -143,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/vim-textobj-user",
     url = "https://github.com/kana/vim-textobj-user"
+  },
+  ["zsh-syntax-highlighting"] = {
+    loaded = true,
+    path = "/Users/aaron.seibert/.local/share/nvim/site/pack/packer/start/zsh-syntax-highlighting",
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting"
   }
 }
 
