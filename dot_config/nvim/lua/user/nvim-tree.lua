@@ -19,7 +19,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 -- empty setup using defaults
-nvim_tree.setup {
+require("nvim-tree").setup {
   update_focused_file = {
     enable = true,
     update_cwd = true,

@@ -70,9 +70,14 @@ source ~/.aliases
 source ~/.env_vars
 source ~/.functions
 
-# load private environment vars definitions if it iexists
+# load private environment vars definitions if it exists
 if [[ -f "~/.private_env" ]]; then
     . ~/.private_env
+fi
+
+# If Bitwarden Secrets Manager is installed, load completions
+if [[ -f "~/bin/bws" ]]; then
+    eval "$(bws completions zsh)"
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

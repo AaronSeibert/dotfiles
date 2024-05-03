@@ -6,9 +6,10 @@ sudo apt install ripgrep
 xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 /opt/homebrew/bin/brew tap homebrew/cask-fonts
-/opt/homebrew/bin/brew install jq fzf neovim antidote font-fira-code-nerd-font bitwarden-cli visual-studio-code
+/opt/homebrew/bin/brew install --cask rectangle
+/opt/homebrew/bin/brew install jq fzf neovim antidote font-fira-code-nerd-font bitwarden bitwarden-cli visual-studio-code
+curl -SL https://github.com/bitwarden/sdk/releases/download/bws-v0.5.0/bws-macos-universal-0.5.0.zip | tar -x -C ~/bin
+/opt/homebrew/opt/fzf/install --all
 {{ end -}}
 mkdir -p ~/.kube/conf.d/
 
-# install fzf keybindings and completion
-/opt/homebrew/opt/fzf/install --all
