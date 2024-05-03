@@ -9,3 +9,6 @@ alias tpmup='~/.tmux/plugins/tpm/bin/update_plugins all'
 # override vim/vi with nvim
 alias vim='nvim'
 alias vi='nvim'
+
+# Imperva Cloud Status
+alias impstat="curl -s https://status.imperva.com/history.json | jq '.components[] | select(.status != \"operational\")' | less"
