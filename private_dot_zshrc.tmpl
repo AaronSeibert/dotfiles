@@ -66,14 +66,16 @@ fi
 # Shell Completion
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# load private environment vars definitions if it exists
+# Ensure we do this before loading any other aliases/env vars for dependencies
+if [ -f ~/.private_env ]; then
+    source ~/.private_env
+fi
+
 source ~/.aliases
 source ~/.env_vars
 source ~/.functions
 
-# load private environment vars definitions if it exists
-if [ -f ~/.private_env ]; then
-    source ~/.private_env
-fi
 
 # If Bitwarden Secrets Manager is installed, load completions
 if [[ -f ~/bin/bws ]]; then
