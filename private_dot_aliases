@@ -12,3 +12,9 @@ alias vi='nvim'
 
 # Imperva Cloud Status
 alias impstat="curl -s https://status.imperva.com/history.json | jq '.components[] | select(.status != \"operational\")' | less"
+
+# API Environment
+setimpv() {
+    eval $(impv-env $1)
+    }
+
