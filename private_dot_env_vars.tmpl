@@ -37,7 +37,7 @@ export BW_PROJECT_PERSONAL="fc6f8d09-29b2-475d-b3a3-b1650154f229"
 export BW_PROJECT_BITS="0f8a0acd-28c0-41ec-87a9-b16501550e3b"
 
 # Load Secrets
-export GITLAB_API_PAT=$(bws secret get e1e4e859-2ab3-445b-9584-b16801379aa4 | jq '.value')
+export GITLAB_API_PAT=$(bws secret get e1e4e859-2ab3-445b-9584-b16801379aa4 | jq -r '.value')
 
 # Gitlab Python Packages
 export PIP_EXTRA_INDEX_URL=https://token:${GITLAB_API_PAT}@gitlab.com/api/v4/groups/84625656/-/packages/pypi/simple/
