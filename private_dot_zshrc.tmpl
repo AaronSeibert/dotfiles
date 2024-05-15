@@ -96,3 +96,10 @@ eval "$(register-python-argcomplete pipx)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Check for Hatch and completion file, create if it doesn't exist and then source
+if [[ -x "$(which hatch)" ]]; then
+    [[ ! -f ~/.hatch-complete.zsh ]] && _HATCH_COMPLETE=zsh_source hatch > ~/.hatch-complete.zsh
+    source ~/.hatch-complete.zsh
+fi
+
