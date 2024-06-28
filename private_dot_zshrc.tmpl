@@ -92,7 +92,7 @@ eval "$(pyenv init -)"
 export PATH="$PATH:/Users/aaron.seibert/.local/bin"
 
 # Add a check for argcomplete
-if type register-python-argcomplete; then
+if type register-python-argcomplete > /dev/null; then
     eval "$(register-python-argcomplete pipx)"
 fi
 
