@@ -18,3 +18,8 @@ setimpv() {
     eval $(impv-env $1)
     }
 
+# cwafcli for dev
+alias cwafcli='python -m cwafcli'
+
+# gh act
+alias ghact='act -s GITHUB_TOKEN="$(gh auth token)" --container-architecture linux/amd64'
