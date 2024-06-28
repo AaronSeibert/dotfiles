@@ -6,7 +6,7 @@
 
 bw() {
     export BW_SESSION=$(bw-open)
-    echo $BW_SESSION > &2
+    echo $BW_SESSION >&2
     echo "Running bw with ${@}" >&2
     command bw $@
 }
