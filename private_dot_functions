@@ -5,7 +5,7 @@
 #fi
 
 bw() {
-    export BW_SESSION=bw-open
+    export BW_SESSION=$(bw-open)
     command bw $@
 }
 
