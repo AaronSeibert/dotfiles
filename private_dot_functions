@@ -3,3 +3,9 @@
 #if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
 #  tmux -CC new-session -A -s ssh_tmux
 #fi
+
+bw() {
+    export BW_SESSION=bw-open
+    command bw
+}
+
