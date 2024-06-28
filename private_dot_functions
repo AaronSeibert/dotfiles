@@ -5,6 +5,7 @@
 #fi
 
 bw() {
+    NODE_OPTIONS="--no-deprecation"
     export BW_SESSION=$(bw-open)
     command bw $@
 }
