@@ -5,7 +5,9 @@
 #fi
 
 bw() {
+    echo "Exporting"
     export BW_SESSION=$(bw-open)
+    echo "Running bw with ${@}"
     command bw $@
 }
 
