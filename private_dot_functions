@@ -6,6 +6,6 @@
 
 bw() {
     export BW_SESSION=bw-open
-    command bw
+    command bw $@
 }
 
