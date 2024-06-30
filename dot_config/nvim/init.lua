@@ -23,7 +23,7 @@ vim.cmd([[
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
   noremap = true
 })
-
+--[[
 require("nvim-tree").setup({
   update_focused_file = {
     enable = true,
@@ -71,3 +71,4 @@ require("nvim-tree").setup({
     width = 30,
   },
 })
+]]
