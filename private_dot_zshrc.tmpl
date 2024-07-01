@@ -107,3 +107,5 @@ if [[ -x "$(which hatch)" ]]; then
     source ~/.hatch-complete.zsh
 fi
 
+# Imagick path
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
