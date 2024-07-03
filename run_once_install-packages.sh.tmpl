@@ -7,10 +7,15 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 /opt/homebrew/bin/brew install --cask rectangle
 /opt/homebrew/bin/brew install --cask font-fira-code-nerd-font
-/opt/homebrew/bin/brew install jq fzf ripgrep neovim antidote bitwarden-cli visual-studio-code pyenv nmap multipass utm terraform tree glib pango jc powershell luajit
+/opt/homebrew/bin/brew tap hashicorp/tap
+/opt/homebrew/bin/brew install hashicorp/tap/terraform jq fzf ripgrep neovim antidote bitwarden-cli visual-studio-code pyenv nmap multipass utm terraform tree glib pango jc powershell luajit
 /opt/homebrew/bin/brew link glib
+
+# Bitwarden Secrets
 curl -SL https://github.com/bitwarden/sdk/releases/download/bws-v0.5.0/bws-macos-universal-0.5.0.zip | tar -x -C ~/bin
 chmod +x ~/bin/bws
+
+# X-Call for calling local x-callback-url
 curl -SL https://github.com/martinfinke/xcall/releases/download/v1.0.1/xcall.app.zip | tar -x -C /Applications
 chmod +x /Applications/xcall.app/Contents/MacOS/xcall
 /opt/homebrew/opt/fzf/install --all

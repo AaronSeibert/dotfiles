@@ -89,7 +89,7 @@ eval "$(pyenv init -)"
 
 # pipx
 # Created by `pipx` on 2024-05-09 02:29:45
-export PATH="$PATH:/Users/aaron.seibert/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Add a check for argcomplete
 if type register-python-argcomplete > /dev/null; then
@@ -106,6 +106,8 @@ if [[ -x "$(which hatch)" ]]; then
     [[ ! -f ~/.hatch-complete.zsh ]] && _HATCH_COMPLETE=zsh_source hatch > ~/.hatch-complete.zsh
     source ~/.hatch-complete.zsh
 fi
+# Go bin
+export PATH="$PATH:$HOME/go/bin"
 
 # Imagick path
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
