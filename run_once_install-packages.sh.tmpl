@@ -1,24 +1,44 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
-sudo apt install ripgrep
-{{ else if eq .chezmoi.os "darwin" -}}
-#!/bin/sh
-xcode-select --install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-/opt/homebrew/bin/brew install --cask rectangle
-/opt/homebrew/bin/brew install --cask font-fira-code-nerd-font
-/opt/homebrew/bin/brew tap hashicorp/tap
-/opt/homebrew/bin/brew install hashicorp/tap/terraform jq fzf ripgrep neovim antidote bitwarden-cli visual-studio-code pyenv nmap multipass utm terraform tree glib pango jc powershell luajit
-/opt/homebrew/bin/brew link glib
+BWS_VERSION=0.5.0
+XCALL_VERSION=1.0.1
+BIN=$HOME/bin
 
-# Bitwarden Secrets
-curl -SL https://github.com/bitwarden/sdk/releases/download/bws-v0.5.0/bws-macos-universal-0.5.0.zip | tar -x -C ~/bin
-chmod +x ~/bin/bws
+# Make sure we have a user bin folder
+/bin/mkdir -p $BIN
 
-# X-Call for calling local x-callback-url
-curl -SL https://github.com/martinfinke/xcall/releases/download/v1.0.1/xcall.app.zip | tar -x -C /Applications
-chmod +x /Applications/xcall.app/Contents/MacOS/xcall
-/opt/homebrew/opt/fzf/install --all
-{{ end -}}
+# We need kubes
 mkdir -p ~/.kube/conf.d/
+
+{{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
+    BWS_PACKAGE="x86_64-unknown-linux-gnu"
+
+    {{ if eq .chezmoi.os "darwin" -}}
+	BWS_PACKAGE="macos-universal"
+
+	# xcode required for homebrew
+	xcode-select --install
+
+	# non-brew packages
+	
+	# X-Call for calling local x-callback-url
+	curl -SL https://github.com/martinfinke/xcall/releases/download/v1.0.1/xcall.app.zip | tar -x -C /Applications
+	chmod +x /Applications/xcall.app/Contents/MacOS/xcall
+
+    {{ end -}}
+
+    # Homebrew
+    /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /opt/homebrew/bin/brew install --cask rectangle
+    /opt/homebrew/bin/brew install --cask font-fira-code-nerd-font
+    /opt/homebrew/bin/brew tap hashicorp/tap
+    /opt/homebrew/bin/brew install hashicorp/tap/terraform jq fzf ripgrep neovim antidote bitwarden-cli visual-studio-code pyenv nmap multipass utm terraform tree glib pango jc powershell luajit
+    /opt/homebrew/bin/brew link glib
+
+    # Bitwarden Secrets
+    curl -SL https://github.com/bitwarden/sdk/releases/download/bws-v${BWS_VERSION}/bws-${BWS_PACKAGE}-${BWS_VERSION}.zip | tar -x -C $BIN
+    chmod +x $BIN/bws
+
+    # Do this last
+    /opt/homebrew/opt/fzf/install --all
+{{ end -}}
 
